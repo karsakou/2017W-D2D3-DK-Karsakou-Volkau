@@ -2,11 +2,11 @@ package com.epam.mentoring;
 
 import org.testng.annotations.Test;
 
-import com.epam.mentoring.task2.ResourceConsumers;
+import com.epam.mentoring.task2.SharedInMemoryResourceConsumers;
 
 public class ResourceConsumersTest {
 
-	private final ResourceConsumers consumers = new ResourceConsumers();
+	private final SharedInMemoryResourceConsumers consumers = new SharedInMemoryResourceConsumers();
 	
 	@Test
 	public void deadLock() throws InterruptedException {
