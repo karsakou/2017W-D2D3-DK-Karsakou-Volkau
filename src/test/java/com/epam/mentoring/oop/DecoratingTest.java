@@ -1,8 +1,8 @@
 package com.epam.mentoring.oop;
 
-import static org.testng.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import com.epam.mentoring.oop.decorator.DecoratedPersonInputStream;
 import com.epam.mentoring.oop.decorator.DecoratingPersonOutputStream;
@@ -16,20 +16,20 @@ public class DecoratingTest {
 	@Test
 	public void decoratingPersonInputStreamUncapitalizesPersonName() {
 		PersonInputStream is = new DecoratedPersonInputStream(new SimplePersonInputStream(() -> "SimplePerson"));
-		assertEquals(is.readPerson().getPersonName(), "simplePerson");
+		assertThat(is.readPerson().getPersonName()).isEqualTo("simplePerson");
 		
 		is = new DecoratedPersonInputStream(new SimplePersonInputStream(() -> "simplePerson"));
-		assertEquals(is.readPerson().getPersonName(), "simplePerson");
+		assertThat(is.readPerson().getPersonName()).isEqualTo("simplePerson");
 	}
 	
 	@Test
 	public void decoratingPersonOutputStreamCapitalizesPersonName() {
 		PersonOutputStream os = new DecoratingPersonOutputStream(new SimplePersonOutputStream(
-				person -> assertEquals(person.getPersonName(), "SimplePerson")));
+				person -> assertThat(person.getPersonName()).isEqualTo("SimplePerson")));
 		os.writePerson(() -> "SimplePerson");
 		
 		os = new DecoratingPersonOutputStream(new SimplePersonOutputStream(
-				person -> assertEquals(person.getPersonName(), "SimplePerson")));
+				person -> assertThat(person.getPersonName()).isEqualTo("SimplePerson")));
 		os.writePerson(() -> "simplePerson");
 	}
 	

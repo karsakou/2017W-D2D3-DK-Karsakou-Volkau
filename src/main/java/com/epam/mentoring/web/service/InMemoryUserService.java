@@ -16,15 +16,6 @@ public class InMemoryUserService implements UserService {
 	
 	private final Random random = new Random();
 	
-	public InMemoryUserService() {
-		User user = new User();
-		user.setLastname("lastName");
-		user.setLogin("login");
-		user.setPassword("password");
-		user.setUsername("firstName");
-		createUser(user);
-	}
-	
 	@Override
 	public User getUserById(Long id) {
 		return users.compute(id, (key, value) -> {

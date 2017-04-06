@@ -1,6 +1,6 @@
 package com.epam.mentoring;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import com.epam.mentoring.task2.SharedInMemoryResourceConsumers;
 

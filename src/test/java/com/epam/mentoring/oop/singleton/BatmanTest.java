@@ -1,8 +1,7 @@
 package com.epam.mentoring.oop.singleton;
 
-import static org.testng.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
@@ -11,7 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class BatmanTest {
 
@@ -38,7 +37,7 @@ public class BatmanTest {
 		startLatch.countDown();
 		finishLatch.await();
 		
-		assertEquals(batmanIds.stream().collect(Collectors.toSet()).size(), 1);
+		assertThat(batmanIds.stream().collect(Collectors.toSet()).size()).isEqualTo(1);
 	}
 	
 }

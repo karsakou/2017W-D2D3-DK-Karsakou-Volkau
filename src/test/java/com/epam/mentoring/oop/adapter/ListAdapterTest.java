@@ -1,24 +1,20 @@
 package com.epam.mentoring.oop.adapter;
 
-import static org.testng.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class ListAdapterTest {
-
-	
 	
 	@Test
 	public void onPopLastElementIsPopedOut() {
 		CustomList<String> customList = new ListAdapter<>();
 		
-		assertEquals(customList.size(), 0);
+		assertThat(customList.size()).isEqualTo(0);
 		customList.push("el1");
 		
-		assertEquals(customList.pop(), "el1");
-		assertEquals(customList.size(), 0);
+		assertThat(customList.pop()).isEqualTo("el1");
+		assertThat(customList.size()).isEqualTo(0);
 	}
 	
 }

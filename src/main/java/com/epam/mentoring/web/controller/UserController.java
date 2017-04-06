@@ -1,7 +1,11 @@
 package com.epam.mentoring.web.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +55,11 @@ public class UserController {
 	@DeleteMapping(path = "/{id}")
 	public void deleteUser(@PathVariable Long id) {
 		userService.deleteUser(id);
+	}
+	
+	@PostMapping(path = "/icons", produces = JSON_MEDIA_TYPE)
+	public String createIcon(InputStream iconInputStream) throws IOException {
+		return IOUtils.toString(iconInputStream, StandardCharsets.UTF_8);
 	}
 	
 }

@@ -1,10 +1,10 @@
 package com.epam.mentoring;
 
-import static org.testng.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.lang.reflect.Method;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import com.epam.mentoring.task3.FilesystemClassLoader;
 
@@ -17,7 +17,7 @@ public class FilesystemClassLoaderTest {
 	@Test
 	public void loadCustomClass() throws ClassNotFoundException {
 		Class<?> customClass = classLoader.loadClass("CustomCircle");
-		assertNotNull(customClass);
+		assertThat(customClass).isNotNull();
 		for(Method method : customClass.getMethods()) {
 			System.out.println(method);
 		}
@@ -26,7 +26,7 @@ public class FilesystemClassLoaderTest {
 	@Test
 	public void loadUsualClass() throws ClassNotFoundException {
 		Class<?> clazz = classLoader.loadClass("com.epam.mentoring.task1.Circle");
-		assertNotNull(clazz);
+		assertThat(clazz).isNotNull();
 		for(Method method : clazz.getMethods()) {
 			System.out.println(method);
 		}

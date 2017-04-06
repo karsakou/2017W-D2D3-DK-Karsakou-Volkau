@@ -7,7 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.testng.util.Strings;
+
+import com.google.common.base.Strings;
 
 public class FilesystemClassLoader extends ClassLoader {
 	
