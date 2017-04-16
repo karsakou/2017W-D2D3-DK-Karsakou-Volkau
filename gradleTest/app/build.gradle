@@ -1,0 +1,7 @@
+apply plugin: 'application'
+
+mainClassName = 'com.mentoring.Runner'
+
+dependencies {
+    compile project(':core')
+}
