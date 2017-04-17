@@ -1,4 +1,4 @@
 dependencies {
     testCompile 'junit:junit:4.12'
-    testCompile 'org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE'
+    testCompile "org.springframework.boot:spring-boot-starter-test:${depVersions.springBootStarterTestVersion}"
 }
