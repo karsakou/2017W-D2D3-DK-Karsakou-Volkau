@@ -1,6 +1,12 @@
 subprojects {
     apply plugin: 'java'
+
+	testResultsDirName = 'd:/reports'
+
     repositories {
         mavenCentral()
     }
+    ext.depVersions = [
+    	'springBootStarterTestVersion' : '1.5.2.RELEASE'
+    ]
 }
